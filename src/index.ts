@@ -1,8 +1,10 @@
 import { User } from "./models/User";
+import { UserPage } from "./views/UserPage";
 
 
 const rootURL = 'http://localhost:3000/users';
 
+/*
 // for create:
 // const user = User.newInstance(rootURL, {name: 'RM', age: 38});
 
@@ -30,3 +32,15 @@ user.on('change', () => {
     console.log(user);
 });
 user.fetch();
+*/
+
+
+const user = User.newInstance(rootURL, {name: 'R2D2', email: 'r2d2@email.com', age: 350});
+
+const mainContainer = document.getElementById('main');
+if (mainContainer) {
+    const userPage = new UserPage(mainContainer, user);
+    userPage.render();
+} else {
+    throw new Error('main container not found');
+}

@@ -1,6 +1,8 @@
 typescript-demo
 -----
 
+## Init
+
 initialize project and create package.json:
 ```
 npm init -y
@@ -21,19 +23,21 @@ install JSON Server:
 npm install -g json-server
 ```
 
-run the server:
-```
-json-server -w db.json
-```
-
 install axios (HTTP Client):
 ```
 npm install axios
 ```
 
-indexcreate tsconfig.json - configuration for the TS compiler:
+create tsconfig.json - configuration for the TS compiler:
 ```
 tsc --init
+```
+
+## Run
+
+run JSON server:
+```
+json-server -w db.json
 ```
 
 parcel:
