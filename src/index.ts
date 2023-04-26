@@ -1,4 +1,5 @@
-import { User } from "./models/User";
+import { User, UserProps } from "./models/User";
+import { UserList } from "./models/UserList";
 import { UserPage } from "./views/UserPage";
 
 
@@ -36,10 +37,11 @@ user.fetch();
 
 
 const user = User.newInstance(rootURL, {name: 'R2D2', email: 'r2d2@email.com', age: 350});
+const userList = new UserList(rootURL,  (props: UserProps) => User.newInstance(rootURL, props));
 
 const mainContainer = document.getElementById('main');
 if (mainContainer) {
-    const userPage = new UserPage(mainContainer, user);
+    const userPage = new UserPage(mainContainer, user, userList);
     userPage.render();
 } else {
     throw new Error('main container not found');
